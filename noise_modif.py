@@ -31,7 +31,6 @@ img = cv2.resize(img, None, fx = 0.3,fy=0.3)
 pyplot.ion()
 
 for i in range(1,11):
-    print(i)
 
     std = 10**(i/4)
     noisy_img = add_gaussian_noise(img,0,std)
