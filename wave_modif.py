@@ -1,27 +1,20 @@
 from PIL import Image
-from matplotlib import pyplot
 # import torch
 from torchvision.transforms import v2
-
-# Image test (Afrique du sud)
-img = Image.open('flags/za.png').convert('RGBA')
-img.thumbnail((1080,180))
-
-
-pyplot.ion()
-
-# Liste des valeurs de la distortion elastic
-alpha = range(25,251, 25)
-
-for a in alpha:
-
-    # Applique la déformation suivant le niveau alpha
-    elastic_transformer = v2.ElasticTransform(alpha=a)
-    img2 = elastic_transformer(img)
-
-    pyplot.imshow(img2)
-    pyplot.pause(0.005)
     
-    next = input('alpha {0}'.format(a))
+def apply_wave_modif(img_file, folder_path):
 
+    # Image test (Afrique du sud)
+    img = Image.open('flags/%s.png'%img_file).convert('RGBA')
+    img.thumbnail((512,512))
+
+    for a in range(1,11):
+        # modification du param exponentiel pour avoir des résultat plus "extrème"
+        alpha = a**3
+
+        # Applique la déformation suivant le niveau alpha
+        elastic_transformer = v2.ElasticTransform(alpha=alpha)
+        wavey_img = elastic_transformer(img)
+        wavey_img.save('{0}/{1}_wave_{2}.png'.format(folder_path,img_file,alpha))
+    
 
