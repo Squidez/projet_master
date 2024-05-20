@@ -7,7 +7,7 @@ from wave_modif import apply_wave_modif
 from brightness_modif import apply_brightness_modif
 
 FLAG_LIST_DIR = 'flag_list.txt'
-DATASET_DIR = 'dataset'
+DATASET_DIR = 'input_data'
 
 with open(FLAG_LIST_DIR, 'r') as f:
     flags = [line[:-1] for line in f]
@@ -19,6 +19,11 @@ if os.path.exists(DATASET_DIR) == False:
 
 for flag in selected_flags:
 
-    apply_noise_modif(flag,DATASET_DIR)
-    apply_brightness_modif(flag,DATASET_DIR)
-    apply_wave_modif(flag,DATASET_DIR)
+    flag_dir = '{0}/{1}'.format(DATASET_DIR,flag)
+
+    if os.path.exists(flag_dir) == False:
+        os.makedirs(flag_dir)
+
+    apply_noise_modif(flag,flag_dir)
+    apply_brightness_modif(flag,flag_dir)
+    apply_wave_modif(flag,flag_dir)

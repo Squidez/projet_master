@@ -2,7 +2,7 @@ from PIL import Image, ImageEnhance
 
 def apply_brightness_modif(img_file, folder_path):
 
-    img = Image.open('flags/%s.png'%img_file).convert('RGB')
+    img = Image.open('flags/%s.png'%img_file).convert('RGBA')
     img.thumbnail((512,512))
 
     enhancer = ImageEnhance.Brightness(img)
