@@ -1,8 +1,8 @@
 import os
 import re
 import requests
+from PIL import Image
 from bs4 import BeautifulSoup
-
 
 def main():
     
@@ -21,12 +21,16 @@ def main():
         os.makedirs(folder_path)
     
     get_big_images(images, folder_path)
-    
+    print('flags loaded')
 
-
+    for flag in os.listdir(folder_path):
+        flag_path = f'{folder_path}/{flag}'
+        img = Image.open(flag_path).convert('RGB')
+        img.save(flag_path)
 
 def get_small_images(images):
-    """Fonctionne mais retourne des images de petites tailles puisqu'il s'agit de thumbnail"""
+    """Fonctionne mais retourne des images de petites tailles puisqu'il s'agit de thumbnail
+    """
 
     for image in images:
 
@@ -40,7 +44,6 @@ def get_small_images(images):
 def get_big_images(images,folder_path):
     """Récupère les images des drapeaux en grand format (width = 2560px)
     """
-
 
     #Regex qui récupère l'abréviation des pays
     abreviation = r'(?<=\/)\w{2}(?=\.\w+)'
@@ -57,6 +60,3 @@ def get_big_images(images,folder_path):
 
 if __name__ == "__main__":
     main()
-
-
-
