@@ -5,7 +5,7 @@ from torchvision.transforms import v2
 def apply_wave_modif(img_file, folder_path):
 
     
-    img = Image.open('flags/%s.png'%img_file).convert('RGBA')
+    img = Image.open('flags/%s.png'%img_file).convert('RGB')
     img.thumbnail((512,512))
 
     for a in range(1,11):

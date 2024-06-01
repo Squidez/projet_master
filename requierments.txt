@@ -5,5 +5,4 @@ matplotlib
 opencv-python
 torch
 torchvision
-imutils
 scikit-learn
