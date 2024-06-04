@@ -29,7 +29,8 @@ def main():
         img.save(flag_path)
 
 def get_small_images(images):
-    """Fonctionne mais retourne des images de petites tailles puisqu'il s'agit de thumbnail
+    """
+    Fonctionne mais retourne des images de petites tailles puisqu'il s'agit de thumbnail
     """
 
     for image in images:
@@ -42,7 +43,8 @@ def get_small_images(images):
             f.write(img.content)
 
 def get_big_images(images,folder_path):
-    """Récupère les images des drapeaux en grand format (width = 2560px)
+    """
+    Récupère les images des drapeaux en grand format (width = 2560px)
     """
 
     #Regex qui récupère l'abréviation des pays
