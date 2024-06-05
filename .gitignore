@@ -6,3 +6,5 @@ input_data_curated/
 input_paint/
 modif_test/
 flags/
+pycache/
+.vscode/
