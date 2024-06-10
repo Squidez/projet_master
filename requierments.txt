@@ -1,8 +1,9 @@
-pillow
-requests
 bs4
 matplotlib
 opencv-python
-torch
-torchvision
+pandas
+pillow
+PyQt5
+requests
 scikit-learn
+torch
