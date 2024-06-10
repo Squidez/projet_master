@@ -1,4 +1,3 @@
-@ -0,0 +1,385 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QPushButton, QHBoxLayout, QColorDialog, QFrame, QFileDialog, QMessageBox
 from PyQt5.QtGui import QPainter, QPen, QBrush, QPolygon
